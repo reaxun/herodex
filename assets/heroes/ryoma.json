@@ -4,7 +4,7 @@
     "weapon_type": "sword",
     "move_type": "infantry",
     "rarity": [5],
-    "base_stats": [
+    "base": [
         {
             "hp": 19,
             "atk": 8,
