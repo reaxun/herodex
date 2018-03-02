@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strconv"
 	"strings"
 
 	"github.com/gorilla/mux"
@@ -99,6 +100,19 @@ func getMaxStats(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(http.StatusNotFound)
 	} else {
 		h.calcMaxStats()
-		json.NewEncoder(w).Encode(h.MaxStatRange)
+		if r, ok := params["rarity"]; ok {
+			rarity, _ := strconv.Atoi(r)
+			for i, heroRarity := range h.Rarity {
+				if heroRarity == rarity {
+					json.NewEncoder(w).Encode(h.MaxStatRange[i])
+					break
+				}
+				if i == len(h.Rarity)-1 {
+					w.WriteHeader(http.StatusNotFound)
+				}
+			}
+		} else {
+			json.NewEncoder(w).Encode(h.MaxStatRange)
+		}
 	}
 }
