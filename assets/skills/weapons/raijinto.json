@@ -1,0 +1,9 @@
+{
+    "name": "Raijinto",
+    "type": "sword",
+    "might": 16,
+    "range": 1,
+    "cost": 400,
+    "exclusive": true,
+    "text": "Enables counterattack regardless of distance if this unit is attacked."
+}

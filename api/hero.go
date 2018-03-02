@@ -26,9 +26,9 @@ type Hero struct {
 	GrowthPoints  Stats       `json:"growth_points"`
 }
 
-// NewHero reads in the json file for the hero name provided
+// newHero reads in the json file for the hero name provided
 // and returns a Hero object for that Hero
-func NewHero(name string) (*Hero, error) {
+func newHero(name string) (*Hero, error) {
 	filename := fmt.Sprintf("assets/heroes/%s.json", name)
 	raw, err := ioutil.ReadFile(filename)
 	if err != nil {
@@ -84,7 +84,7 @@ func (h *Hero) calcMaxStats() {
 func getHero(w http.ResponseWriter, req *http.Request) {
 	params := mux.Vars(req)
 	name := strings.ToLower(params["name"])
-	h, err := NewHero(name)
+	h, err := newHero(name)
 	if err != nil {
 		w.WriteHeader(http.StatusNotFound)
 	} else {
@@ -95,7 +95,7 @@ func getHero(w http.ResponseWriter, req *http.Request) {
 func getMaxStats(w http.ResponseWriter, req *http.Request) {
 	params := mux.Vars(req)
 	name := strings.ToLower(params["name"])
-	h, err := NewHero(name)
+	h, err := newHero(name)
 	if err != nil {
 		w.WriteHeader(http.StatusNotFound)
 	} else {

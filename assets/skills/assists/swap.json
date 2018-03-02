@@ -1,0 +1,9 @@
+{
+    "name": "Swap",
+    "range": 1,
+    "cost": 150,
+    "exclusions": [
+        "staff"
+    ],
+    "text": "Swap places with an adjacent ally."
+}

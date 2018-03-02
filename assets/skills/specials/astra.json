@@ -1,0 +1,11 @@
+{
+    "name": "Astra",
+    "cooldown": 4,
+    "cost": 400,
+    "exclusions": [
+        "staff"
+    ],
+    "exclusive": false,
+    "prerequisite": "Night Sky",
+    "text": "Grants 150% to damage dealt."
+}
